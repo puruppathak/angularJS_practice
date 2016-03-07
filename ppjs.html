@@ -3,7 +3,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <body>
 
-<div ng-app="myApp" ng-init="col1='red'" ng-controller="myCtrl">
+<div ng-app="myApp" ng-controller="myCtrl" ng-init = "arr=['Puru','Tushar','KK']" >
  
 <p>Input something in the input box:</p>
 <p>Name: <input style = "background-color:{{col1}}" type="text" ng-model="name"></p> 
@@ -14,6 +14,14 @@
 <!--<p ng-bind="address"></p> -->
 <p> Hey there {{name}} </p> 
 <p> Your address is {{address}} </p>
+
+<p> Here's the list of names: </p>
+<ul>
+	<li ng-repeat="x in arr">
+		{{x}}
+	</li>
+</ul>
+
 </div>
 
 
@@ -21,7 +29,7 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
     $scope.name= "Puru";
-    $scope.col1="red";
+    $scope.col1="lightblue";
     $scope.address= "New York";
 });
 </script>
