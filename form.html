@@ -4,7 +4,7 @@
 
 <body>
    <h1> Email validation: </h1>
-   <form ng-app="" name="myForm">
+   <form ng-app="" name="myForm" ng-init="text='ppathak@gmail.com'">
     Email:
    	<input type="email" name="myEmail" ng-model="text" >
    	<span ng-show="myForm.myEmail.$error.email"> Enter a valid email ID
