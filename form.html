@@ -2,19 +2,25 @@
 <html>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
+
+
+
 <body>
    <h1> Email validation: </h1>
    <form ng-app="" name="myForm" ng-init="text='ppathak@gmail.com'">
     Email:
-   	<input type="email" name="myEmail" ng-model="text" >
+   	<input type="email" name="myEmail" ng-model="text" required>
    	<span ng-show="myForm.myEmail.$error.email"> Enter a valid email ID
    	</span>
 
+   <p> Valid checking: {{myForm.myEmail.$valid}} </p>
+
+   <p> Valid dirty: {{myForm.myEmail.$dirty}} </p>
+
+   <p> Valid touched: {{myForm.myEmail.$touched}} </p>
+
+
    </form>
-
-
-
-
 
 
 </body>
