@@ -5,18 +5,21 @@
 <body>
 
 <div ng-app="myApp" ng-controller="myCntrl">
-<p> Enter your name in the box below: </p>
+<p> Grade report of NYU Graduates: </p>
 
 <table border="1" width="100%">
 
+<tr>
+<th ng-click="orderByMe('name')">Name</th>
+<th ng-click="orderByMe('marks')">Marks</th>
+</tr>
 
-<p> <input type="text" ng-model="test"> </p>
-<p> Filtered names are: <p>
-<ul>
-	<li ng-repeat="x in names | filter:test">
-		{{x}}
-	</li>
-<ul>
+<tr ng-repeat="x in names | orderBy:myOrderBy">
+  <td> {{x.name}} </td>
+  <td> {{x.marks}} </td>
+</tr>
+<table>
+
 
 </div> 
 
@@ -24,9 +27,18 @@
 angular.module('myApp',[]).controller('myCntrl',function($scope)
 {
 
-   $scope.names=['Puru','Pore','Pratham','Swan','Ketan','Priyanka'];
+   $scope.names=[{name:'Puru',marks:'C'},
+   {name:'Swanand',marks:'A'},
+   {name:'Pore',marks:'A'},
+   {name:'Ketan',marks:'B'}];
+
+   $scope.orderByMe=function(x){
+   	$scope.myOrderBy=x;
+   }
 
 });
+
+
 
 </script>
 
